@@ -1,0 +1,19 @@
+open the site: https://ngrok.com/download
+Select OS: Kali Linux
+Download: x86/-x64
+Extract file:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# tar xvzf ngrok-v3-stable-linux-amd64.tgz
+
+Install:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# apt install  ngrok
+
+Add Token:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# ngrok config add-authtoken 2QLjVWet71J71n6rqNnPGoclKX5_7hWAiRsx99bLZRCAfJZrf
+Authtoken saved to configuration file: /root/.config/ngrok/ngrok.yml
+
+Run:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# ngrok
