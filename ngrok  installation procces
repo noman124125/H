@@ -17,3 +17,7 @@ Authtoken saved to configuration file: /root/.config/ngrok/ngrok.yml
 Run:
 ┌──(root㉿windows)-[/home/new/Downloads]
 └─# ngrok
+
+Get the IP and port:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# ngrok tcp 6464
