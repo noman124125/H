@@ -1,0 +1,92 @@
+------------------------------------------>>> Network Scanning <<<---------------------------
+
+- Process of scanning 
+- Active Devices
+- Open port
+- Checking Misconfiguration
+
+# steps to scan a network
+- Selecting target
+- Scan for IP Range
+- Scan for open ports
+- Checking services
+- Grabbing Versions
+- Grabbing OS
+- Bypassing IDS
+- Selecting correct Scan
+
+Types of Network Scan
+- TCP (three way handshake) >>> -sT | "Nmap -sT IP(192.168.1.1)"
+	| > syn pack > |
+	| < ack syn <  |
+	| > ack ack <  |
+
+- UDP (scan we do in wired network) >>> -sU | "Nmap -sU IP(192.168.1.1)"
+
+- SYN (to safe ourself to get block) >>> -sS | "Nmap -sS IP(192.168.1.1)"
+	| > syn pack > |
+	| < ack syn <  |
+
+- ACK (Generate ack) >>> -sl | "Nmap -sl IP(192.168.1.1)"
+	| > ack ack <  |
+
+- FIN (finshed scan) >>> -sF | "Nmap -sF IP(192.168.1.1)"
+
+- NULL (not comin back with any scan) >>> -sN | "Nmap -sN IP(192.168.1.1)"
+
+- XMAX (Doing scan using a compromised/hacked system not direct from main system to keep ourself safe from getting block) >>> -sX | "Nmap -sX IP(192.168.1.1)"
+
+- IDLE (Doing scan using a compromised/hacked system not direct from main system to keep ourself safe from getting block) >>> -sI | "Nmap -sI IP(192.168.1.1)"
+
+
+
+------------------------------------------->>> Basic to advance network scanning <<<-----------------------------------------------
+
+- Total number of port 65535
+- Run Metasplotable 2
+- login  with user name and password "msfadmin"
+- write command "ifconfig" to get IP to scan the running ports
+- Run linux machine and enter the IP in firefox browser then the metasploitable 2 server will start on webapge
+- open linux terminal and ping the metasploitable 2 IP "ping 192.168.1.1"
+
+Tools for Scanning
+
+- Nmap (basic)
+- Masscan (advance)
+
+
+* -v verbus for detailed infromation
+* -vv double verbus for more detailed infromation
+* -O for complete system operating system
+* -p ports definning
+* -oX o will define that we want output and X define the formate in XML file
+* -T4 level of sacnning
+* -sV for checking the version of running ports
+
+
+- for normal scan
+>> nmap -sT -v 192.168.1.1 (it will discover open ports) we can also check the process by pressing enter
+>> nmap -sU -v 192.168.1.1 (it will discover open ports) we can also check the process by pressing enter
+>> nmap -sS -v 198.168.1.1 (it will dicover all ports even unknown port without stablishing connenction/threeway handshake and firewall cannot block us in this proccess)
+
+- to scan all ports
+>> nmap -sT -T4 -p 1-65535 -v 192.168.1.1
+>> nmap -sT -T4 -sV -p 1-65535 -v 192.168.1.1
+>> nmap -sT -T4 -sV -p 1-65535 -vv 192.168.1.1 -oX textscan.xml
+>> nmap -sT -T4 -sV -O -p 1-65535 -vv 192.168.1.1 -oX textscan.xml
+# once the file is created
+# convert XML file to HTML file
+>> xsltproc testscan.xml -o testscan.html
+>> cd /home/new
+# exit from root permissions
+>> exit
+# to open file file on firefox in html format
+>> firefox testscan.html
+
+- Nmap Scripts for advance use for by default scripts(can also vist the website for futher scripts description)
+>> nmap -A 192.168.1.1 --scripts
+>> nmap -A 192.168.1.1 -sC
+
+
+- Massscan (is used to scan large number of scanning such as servers or more than that)
+>> masscan -p 1-65535 192.168.1.0/24 --rate=10000
