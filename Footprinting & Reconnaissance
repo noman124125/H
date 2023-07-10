@@ -1,0 +1,52 @@
+-------------------------------------------------->>> Footprinting & Reconnaissace <<<-----------------------------------------------------
+
+> Personal info
+> Company info
+> System info
+> Gathering info about target
+> Entities Belongs to Target
+> Technology is using target
+
+# Types of footprinting & reconnaissance
+> Active (gethering info directly from target)
+> Passive (getthering info inderectly such as involving third party or third party services like social media applications)
+
+# Use of footprinting & reconnaissance
+> Information Gathering
+> Time Saving
+> Easy Processing
+> Accurate Attacking
+
+# How to foot printing
+> Footprinting through search engines
+	- Not evil
+	- Shodan
+	- Censys
+	- Duck Duck Go
+	- Google
+	- Yahoo
+	- Bing
+
+> Footprinting through advance google techniques
+	- Cache:
+	- allintext:
+	- allintitle:
+	- allinurl:
+	- filetype:
+	- inurl:
+	- intitle:
+	- inanchor:
+	- intext:
+	- site:
+	- |:
+	- indexof:
+	- *:
+	- -:
+
+> Footprinting through Social networking sites
+	- Email
+	- Facebook
+	- Instagram
+	- Linkedin
+	
+	note: don't upload much details about you to being ANONYMOUS!
