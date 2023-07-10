@@ -1,0 +1,59 @@
+-------------------------------------------------->>> Setup a Linux machine <<<-----------------------------------------------
+
+Install 
+VMware Workstation
+Kali ISO file
+Windows XP for testing
+Metasploitable 2
+
+1. Install VMware Workstation 17 pro and find key on internet and activate it
+2. Add Virtual Machine (Kail) storage 50GB - processor 2-3 - RAM 3-4
+	settings:
+	- open terminal type command "sudo su" >> "cd /etc/apt" >> "gedit sources.list" and uncomment the last line >> save >> close
+	- command "cd /etc/apt" >> apt-get update >> apt-get upgrade
+	- command "cd /home/new/Downloads" >> "git clone https://github.com/leebaird/discover.git" >> "./update.sh" >> "./discover.sh"
+	- command "cd /home/new/Documents" >> "git clone https://github.com/danielmiessler/SecLists.git"
+	- Download Burpsuite "https://drive.google.com/file/d/1R19bRsw72NeGTlwJ9U96rOp8mk8fHQ9m/view" >> "cd/home/new/Downloads" >> "unzip Burpsuite.zip"
+	- Download Java jdk 8 it is compatible version (8u262-b10) "https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&field_operating_system_target_id=426&field_architecture_target_id=391&field_java_package_target_id=396"
+	- install Java jdk 8 >> "cd/home/new/downloads" >> "dpkg -i openlogic-openjdk-8u262-b10-linux-x64-deb.deb"
+	- Activate Java jdk 8 >> "update-alternatives --config java" >> select the last one or "Java jdk 8"
+	- Go to Burpsuite dir >> "cd/home/new/downloads/Burpsuite" >> java -noverify -jar ESEdition.jar >> press ok >> copy and paste activation keys >> choose manual intall >> next next next >> ./burp.sh to launch application.
+	- check the hostname if it's kali >> cat cd /etc/hostname
+	- check the hosts if it's kali >> cat cd /etc/hosts
+	- Add proxychains >> cd /etc >> "gedit proxychains4.conf" >> "uncomment dynamichains" and "comment staticchains"
+		- add some proxies/IP in the end of the file such as "http	198.168.1.255	80" 
+		- save changes >> run command to test proxies "proxychains curl https://freeproxylists.net/"
+	- Ready made script/tool "Torghost github" to change IP >> "git clone https://github.com/SusmithKrishnan/torghost.git"
+		- to setup the script >> "cd/home/new/downloads/Torghost" >> ./bulid.sh
+		- to see mannual "python3 torgost.py"
+		- to start "python3 torgost.py -s"
+		- to stop "python3 torgost.py -x"
+	- Changing mac address >> "macchanger -help"
+		* -h,  --help                   Print this help
+		  -V,  --version                Print version and exit
+		  -s,  --show                   Print the MAC address and exit
+		  -e,  --ending                 Don't change the vendor bytes
+		  -a,  --another                Set random vendor MAC of the same kind
+		  -A                            Set random vendor MAC of any kind
+		  -p,  --permanent              Reset to original, permanent hardware MAC
+		  -r,  --random                 Set fully random MAC
+		  -l,  --list[=keyword]         Print known vendors
+		  -b,  --bia                    Pretend to be a burned-in-address
+		  -m,  --mac=XX:XX:XX:XX:XX:XX
+		       --mac XX:XX:XX:XX:XX:XX  Set the MAC XX:XX:XX:XX:XX:XX
+		
+		>>> maccchanger -s eth0(you can find this by writing ifcong)
+
+		* Make file >> "cd/home/new/Documents" >> "echo > mac.sh" >> "chmod +x mac.sh" >> "gedit mac.sh"
+			#!/bin/sh
+			macchanger -e eth0
+			macchanger -e eth0
+			macchanger -e eth0
+			exit
+		* Save and Exit >> "./mac.sh"
+		* "crontab -e" >> press 1 >> add on the top "@reboot /home/new/Documents/mac.sh" >> Ctl+O >> Enter >> Ctl+S >> Ctl+X
+		* "service cron start"
+		* "systemctl enable cron.service"
+		* "systemctl start cron.service"
+		* "update-rc.d cron defaults"
+		* reboot or restart
