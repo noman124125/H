@@ -5,6 +5,14 @@ Extract file:
 ┌──(root㉿windows)-[/home/new/Downloads]
 └─# tar xvzf ngrok-v3-stable-linux-amd64.tgz
 
+Move:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# cp ngrok /usr/local/bin
+
+Reboot:
+┌──(root㉿windows)-[/home/new/Downloads]
+└─# reboot
+
 Install:
 ┌──(root㉿windows)-[/home/new/Downloads]
 └─# apt install  ngrok
