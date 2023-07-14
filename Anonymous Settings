@@ -1,1 +1,5 @@
 ------------------------------------------------ >>> Auto MAC Changing <<< ------------------------------------------------
+>> macchanger -h
+>> macchanger -e eth0 (to change the ending of mac address)
+>> macchanger -r eth0 (to set a random mac address)
+>> macchanger -a eth0 (to change and set a similar vendor)
