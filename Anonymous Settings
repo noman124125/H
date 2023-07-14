@@ -3,3 +3,32 @@
 >> macchanger -e eth0 (to change the ending of mac address)
 >> macchanger -r eth0 (to set a random mac address)
 >> macchanger -a eth0 (to change and set a similar vendor)
+
+
+>> echo >> mac.sh (create a file in documents folder)
+>> chmod +x mac.sh 
+>> gedit mac.sh
+
+------------- Copy Paste ------------------
+#!/bin/sh
+
+macchanger -e eth0
+macchanger -e eth0
+macchanger -e eth0
+macchanger -r eth0
+macchanger -r eth0
+macchanger -r eth0
+macchanger -a eth0
+macchanger -a eth0
+macchanger -a eth0
+
+exit
+------------- XXXXXXXXXX ------------------
+
+# Save and Close >> ./mac.sh >> 
+>> crontab -e" >> press 1 >> add on the top "@reboot /home/new/Documents/mac.sh" >> Ctl+O >> Enter >> Ctl+S >> Ctl+X
+>> service cron start
+>> systemctl enable cron.service
+>> systemctl start cron.service
+>> update-rc.d cron defaults
+>> reboot or restart
