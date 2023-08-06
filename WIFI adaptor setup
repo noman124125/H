@@ -1,0 +1,15 @@
+---------------------------------------------------------- WIFI Adaptor setup ----------------------------------------------------
+
+# connect your wifi adaptor with the Virtual Machine
+
+# once adaptor appeared on the VMware path ">> VM >> Removable Device >> Realtek 802.1 N" in the connected devices
+
+>> lsusb
+
+# then select the driver name at the end of the apaptor description (link: realtek-rtl8188eus)
+
+>> apt install -y realtek-rtl8188eus-dkms
+
+>> sudo shutdown -r now
+
+--------------------------------------------------------------- ENJOY --------------------------------------------------------------
