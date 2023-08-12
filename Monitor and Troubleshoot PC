@@ -1,0 +1,26 @@
+-------------------------------------- Monitor and Troubleshoot PC --------------------------------------
+
+Event Viewer:
+  To check the logs and activities to troubkleshoot or to Fix them
+
+Report Problems:
+  To check the reported problems in your PC
+
+Change security maintenance settings:
+  To check the default security settings and precuation of your OS
+
+Performance Monitor:
+  To monitor the system in deep and detailed
+
+Resources Monitor:
+  To check the resources of a monitor such as Overview, CPU, Memory, Disk, Networks
+  Especially:
+      Network Activity
+      TCP Connections
+      Listening Ports
+
+System Configuration:
+  To work with General, Boot, Services, Startup, Tools
+  Especially:
+      To Disable all running services at a time to monitor the running services.
+  
