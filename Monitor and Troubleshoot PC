@@ -136,3 +136,9 @@ repairs, details are included in the log file provided by the /OFFLOGFILE flag.
 
 --------------------------------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -----------------------------------------
 
+# to fix, repair, and recover the damaged boot files 
+>> bootrec/bootfix
+>> bootrec/fixmbr
+>> bootrec/ScanOS
+>> fixmbr
+>> fixboot
