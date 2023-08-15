@@ -24,3 +24,93 @@ System Configuration:
   Especially:
       To Disable all running services at a time to monitor the running services.
   
+
+-------------------------------------- Monitor and Troubleshoot PC Using CMD --------------------------------------
+
+# to to scan a disk files and get the report of utilities and dependancies
+>> Chkdsk /F
+
+--------------------------------------- System Report Look like after scan -----------------------------------------
+
+C:\Windows\system32>Chkdsk /C
+The type of the file system is NTFS.
+
+WARNING!  /F parameter not specified.
+Running CHKDSK in read-only mode.
+
+WARNING!  /C parameter specified.
+Your drive may still be corrupt even after running CHKDSK.
+
+Stage 1: Examining basic file system structure ...
+  634368 file records processed.
+File verification completed.
+ Phase duration (File record verification): 24.05 seconds.
+  11689 large file records processed.
+ Phase duration (Orphan file record recovery): 0.00 milliseconds.
+  0 bad file records processed.
+ Phase duration (Bad file record checking): 1.18 milliseconds.
+
+Stage 2: Examining file name linkage ...
+  428 reparse records processed.
+  850934 index entries processed.
+Index verification completed.
+ Phase duration (Index verification): 1.63 minutes.
+  0 unindexed files scanned.
+ Phase duration (Orphan reconnection): 21.56 milliseconds.
+  0 unindexed files recovered to lost and found.
+ Phase duration (Orphan recovery to lost and found): 1.97 milliseconds.
+  428 reparse records processed.
+ Phase duration (Reparse point and Object ID verification): 23.05 milliseconds.
+
+Stage 3: Examining security descriptors ...
+Security descriptor verification completed.
+ Phase duration (Security descriptor verification): 101.86 milliseconds.
+  108284 data files processed.
+ Phase duration (Data attribute verification): 1.55 milliseconds.
+CHKDSK is verifying Usn Journal...
+  34333760 USN bytes processed.
+Usn Journal verification completed.
+ Phase duration (USN journal verification): 548.94 milliseconds.
+
+Windows has scanned the file system and found no problems.
+No further action is required.
+
+ 236543999 KB total disk space.
+  66920052 KB in 335794 files.
+    220424 KB in 108285 indexes.
+         0 KB in bad sectors.
+    746691 KB in use by the system.
+     65536 KB occupied by the log file.
+ 168656832 KB available on disk.
+
+      4096 bytes in each allocation unit.
+  59135999 total allocation units on disk.
+  42164208 allocation units available on disk.
+Total duration: 2.04 minutes (122964 ms).
+
+
+--------------------------------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -----------------------------------------
+
+
+# scan machine finds and fixes the issues and errors in files and OS
+>> sfc
+
+--------------------------------------- System Report Look like after scan -----------------------------------------
+
+C:\Windows\system32>sfc /scannow
+
+Beginning system scan.  This process will take some time.
+
+Beginning verification phase of system scan.
+Verification 100% complete.
+
+Windows Resource Protection found corrupt files and successfully repaired them.
+For online repairs, details are included in the CBS log file located at
+windir\Logs\CBS\CBS.log. For example C:\Windows\Logs\CBS\CBS.log. For offline
+repairs, details are included in the log file provided by the /OFFLOGFILE flag.
+
+
+(c) Microsoft Corporation. All rights reserved.
+
+--------------------------------------- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -----------------------------------------
+
