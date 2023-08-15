@@ -27,6 +27,28 @@ System Configuration:
 
 -------------------------------------- Monitor and Troubleshoot PC Using CMD --------------------------------------
 
+# To see the running proccess and applications Taskmanger
+>> tasklist
+C:\Users\I'll let you know!>tasklist
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0          8 K
+System                           4 Services                   0      6,988 K
+Registry                       100 Services                   0     28,088 K
+smss.exe                       432 Services                   0        432 K
+csrss.exe                      520 Services                   0      2,352 K
+wininit.exe                    596 Services                   0      3,276 K
+services.exe                   668 Services                   0      6,592 K
+lsass.exe                      676 Services                   0     13,340 K
+svchost.exe                    808 Services                   0     24,556 K
+fontdrvhost.exe                840 Services                   0        628 K
+
+# to kill task
+>> taskkill /PID 0000
+
+--------------------------------------------------------------------------------------------------------------------
+
 # to to scan a disk files and get the report of utilities and dependancies
 >> Chkdsk /F
 
