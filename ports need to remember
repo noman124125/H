@@ -1,13 +1,14 @@
-Ports need to remember and memorise
+Protocols Port need to remember and memorise
 
-20, 21  :  FTP
-22      :  SSH
-23      :  TELNET
-25      :  SMTP
-53      :  DNS
-80      :  HTTP
-110     :  POP3
-143     :  IMAP
-443     :  HTTPS
-587*    :  SMTP*
-3389    :  RDP
+20, 21  :  FTP      :  File transfer protocol
+22      :  SSH      :  Secure socket shell
+23      :  TELNET   :  Remote access
+25      :  SMTP     :  Email Sending
+53      :  DNS      :  Domain Names
+80      :  HTTP     :  Browsing
+110     :  POP3     :  Downloading emails
+143     :  IMAP     :  Organize Folders
+443     :  HTTPS    :  Safe Browsing
+587*    :  SMTP*    :  Simple mail transfer protocol
+3389    :  RDP      :  Remote Desktop
+
