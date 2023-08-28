@@ -9,5 +9,5 @@ Ports need to remember and memorise
 110     :  POP3
 143     :  IMAP
 443     :  HTTPS
-587*    :  SMPT*
+587*    :  SMTP*
 3389    :  RDP
