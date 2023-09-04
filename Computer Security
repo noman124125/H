@@ -1,2 +1,16 @@
 ---------------------------------------------------------------- Settings and steps need to do to make a secure computer --------------------------------------------------------------
 
+1) Types of Accounts:
+      Admistration account
+      Standard User Account
+      Power user
+      Group account
+2) Account Lookout
+3) Passwords
+      Complexity
+      History
+      Age
+      Length
+4) User account control (UAC)
+      Least privilege
+      Settings
