@@ -1,16 +1,45 @@
 ---------------------------------------------------------------- Settings and steps need to do to make a secure computer --------------------------------------------------------------
 
+VISIT "COMPUTER MANAGEMENT" for System Tools, Task Scheduler, Event Viewver, Shared Folders, Local Users Groups, Performance, Device Manager, Disk Management, Services and Applications 
+
 1) Types of Accounts:
-      Admistration account
-      Standard User Account
-      Power user
-      Group account
+
+      - Admistration account 
+            "The Administrator account is the first account that is created during the Windows installation. 
+            The Administrator account has full control of the files, directories, services, and other resources on the local device. 
+            The Administrator account can create other local users, assign user rights, and assign permissions"
+
+      - Standard User Account
+            "A standard user account is designed for day-to-day computing. You can't do complicated system tweaks with it, but you can still perform everyday tasks without any issues.
+
+      - Power user
+            " A power user has expertise with one or more operating systems and a variety of applications. 
+            Power users are often able to perform operations by typing commands on the command line in desktop and laptop operating systems."
+
+      - Guest account
+            The Guest account has the following restrictions:
+            It does not have a password, and you cannot set one for it.
+            You cannot use it to install programs, universal apps or hardware devices.
+            It can use only the applications that were already installed on the PC when the Guest account was enabled.
+
 2) Account Lookout
+      "The Account lockout threshold policy setting determines the number of failed sign-in attempts that will cause a user account to be locked. 
+      A locked account can't be used until you reset it or until the number of minutes specified by the Account lockout duration policy setting expires."
+
 3) Passwords
       Complexity
       History
       Age
       Length
+
 4) User account control (UAC)
       Least privilege
       Settings
+
+5) Enable "user account control settings" as "always notify me either i make changes or any application in my computer" by following the bellow path:
+      Control Panel\User Accounts\User Accounts\user account control settings
+
+6) Disable Mics and Cameras in "DEVICE MANAGER" if needed for increasing more security.
+
+7) Computer Management >> Local Users and Groups
+
