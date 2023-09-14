@@ -4,3 +4,6 @@ Smishing: SMS phishing with enclosed scam, fraud links
 Impersonation: Where attacker try to pretend like who is he not actually like from Bank, Government org, Microsoft
 Reconnaissance: Information gathering of victim from public sources like Facebook, Instagram, Linkedin etc
 Eliciting Information: Human Hacking by calling, voice messaging, emailing etc to get sensitive information
+Credential Harvesting: (Marco downloads the credential harvesting malware) Attker can send a malware in form of docs file or other format
+Tailgating: Is getting access of victim machine
+Social Engineering: The technicques and tactics uses to manupilate people for information gathering over call, messages, email etc.
