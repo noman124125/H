@@ -7,3 +7,14 @@ Eliciting Information: Human Hacking by calling, voice messaging, emailing etc t
 Credential Harvesting: (Marco downloads the credential harvesting malware) Attker can send a malware in form of docs file or other format
 Tailgating: Is getting access of victim machine
 Social Engineering: The technicques and tactics uses to manupilate people for information gathering over call, messages, email etc.
+Malware: Is a malicious program or software can be used to steal sensitive infomration, can do DOS and DDOS attackes remote access, displaying ads to the victims and make money.
+Types of Malware:
+  Viruses: it doesn't replicate it self until user launch or install it by theirself into the machine.
+  Crypto-malware:
+  Ransomware: Is a kind of program uses to Locked/hack system of whale companies and ask them for money to give them the access back of their data.
+  Worms: Replicate/ travel very quick/fast itself computer to computer without human interaction and by taking the advantage of system vulnerabilities. it is also uses to open backdoor and by using Doublepulsar
+  Torjan horse: 
+  Rootkit: 
+  Keylogger: 
+  Adware/Spyware: 
+  Botnet: 
