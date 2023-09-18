@@ -13,8 +13,16 @@ Types of Malware:
   Crypto-malware:
   Ransomware: Is a kind of program uses to Locked/hack system of whale companies and ask them for money to give them the access back of their data.
   Worms: Replicate/ travel very quick/fast itself computer to computer without human interaction and by taking the advantage of system vulnerabilities. it is also uses to open backdoor and by using Doublepulsar
-  Torjan horse: 
-  Rootkit: 
+  Torjan horse: create backdoors to get into a system, to remote access torjon (RATs), Key logging, screenrecording, screenshots, performaing adminstaration task, can configure registry, change functions, Run scripts
+  Rootkit: software runs in kernel invisibally, difficult to find and remove (casue it integrates itself with system files which cannot be delete in the runing OS)
   Keylogger: 
-  Adware/Spyware: 
-  Botnet: 
+  Adware/Spyware: Adware (Shows Advertisement pop-ups, Performance Issues, Install accidentally, attacker makes money by displaying ads), Monitor Browsing activities to know waht we are doing, and keystrokes to our usernames and passwords. 
+  Botnet: use to DOS and DDOS
+  Logic Bombs: Get into secretly and wait for the right time to attack, and after that it distroy and clean itself, by Master boot, record deleting, system reboots, difffcult to find by scanners
+
+After 2019 the term came out hash, which basically purpose was to encrypt passwords more by hashing like assigning orignal password char with large lenght of numbers, alphabets, special characters like (39b03f15d6f58cd51dv5vdv45vd44dv54dv545:::).
+
+Spring Attack: attackting with the specific and most common list of passwords
+Brute Force: passowrd cracking attacking by password lists (very time consuming)
+Dictionary attack: Brute force Attack by using very specific list of passwords
+
