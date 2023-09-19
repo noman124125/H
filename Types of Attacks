@@ -1,13 +1,23 @@
 Phishing: Spam emails to get sensitive information by clone sites from victim
+
 Pharming: DNS poisioning by redirecting from right webpages to scam, fraud and attacker webpages
+
 Smishing: SMS phishing with enclosed scam, fraud links
+
 Impersonation: Where attacker try to pretend like who is he not actually like from Bank, Government org, Microsoft
+
 Reconnaissance: Information gathering of victim from public sources like Facebook, Instagram, Linkedin etc
+
 Eliciting Information: Human Hacking by calling, voice messaging, emailing etc to get sensitive information
+
 Credential Harvesting: (Marco downloads the credential harvesting malware) Attker can send a malware in form of docs file or other format
+
 Tailgating: Is getting access of victim machine
+
 Social Engineering: The technicques and tactics uses to manupilate people for information gathering over call, messages, email etc.
-Malware: Is a malicious program or software can be used to steal sensitive infomration, can do DOS and DDOS attackes remote access, displaying ads to the victims and make money.
+
+Malware: Is a malicious program or software can be used, which is use to gain unauthorize access of any machine
+
 Types of Malware:
   Viruses: it doesn't replicate it self until user launch or install it by theirself into the machine.
   Crypto-malware:
@@ -20,9 +30,22 @@ Types of Malware:
   Botnet: use to DOS and DDOS
   Logic Bombs: Get into secretly and wait for the right time to attack, and after that it distroy and clean itself, by Master boot, record deleting, system reboots, difffcult to find by scanners
 
-After 2019 the term came out hash, which basically purpose was to encrypt passwords more by hashing like assigning orignal password char with large lenght of numbers, alphabets, special characters like (39b03f15d6f58cd51dv5vdv45vd44dv54dv545:::).
+After 2019 the term came out hash, which basically purpose was to encrypt passwords more by hashing like assigning orignal password 
+char with large lenght of numbers, alphabets, special characters like (39b03f15d6f58cd51dv5vdv45vd44dv54dv545:::).
 
 Spring Attack: attackting with the specific and most common list of passwords
+
 Brute Force: passowrd cracking attacking by password lists (very time consuming)
+
 Dictionary attack: Brute force Attack by using very specific list of passwords
 
+Physical Attacks: Through USB cabels, USB, and ATM machines
+
+Cryptographic Attack: MIT men in the middle attack
+
+Privilege Escalation: Gain Higher Level access of a system by Exploiting Vulnerabilities
+
+Cross-site Scripting XSS: where attacker insert a link/malicious code of malware in the insert box of webpage such as shopping carts, 
+                          so that when receiver will click the link and attacker will get the access of victim machine. In other case
+                          attacker can also integrate his malicious program by link the webpage server, and then every visitor of that
+                          webpage will become victim and will compromise their systems.
