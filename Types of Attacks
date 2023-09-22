@@ -49,3 +49,15 @@ Cross-site Scripting XSS: where attacker insert a link/malicious code of malware
                           so that when receiver will click the link and attacker will get the access of victim machine. In other case
                           attacker can also integrate his malicious program by link the webpage server, and then every visitor of that
                           webpage will become victim and will compromise their systems.
+Injection Attacks: Injecting piece of code to exploit the vulnerability of application/software.
+                   Languages can be used to prepare injection:
+                    SQL (Structured Query Language): Use to get information for DB by injecting SQL code
+                    XML (Extensible Markup Language): Aset of rule of transfer data and storage
+                    LDAP (Lightweight Directory Access Protocol): Modify LDAp requests to manipulate application results 
+                    HTML (Hypertext Markup Language): 
+                    DLL (Dynamic Link Library): way to inject some code to execute the application code for us. 
+
+Buffer overflows: This appears due to the Lack of web/app developer, it's hard to find, mostly can be attack by DOS and DDOS
+
+Replay Attack: Is use to steal credentials and session IDs by sniffing a network and ARP poisoning (WIFI Hacking, MIT Attack)
+
