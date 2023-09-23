@@ -61,3 +61,22 @@ Buffer overflows: This appears due to the Lack of web/app developer, it's hard t
 
 Replay Attack: Is use to steal credentials and session IDs by sniffing a network and ARP poisoning (WIFI Hacking, MIT Attack)
 
+Request Forgeries: where attacker can use victim system by pretending like victim to target/access the sensitive information 
+                   about victim such as credentials, social media accounts, bank acount details, browsing activities from the
+                   most securist servers such as facebook, instagram, youtube, chrome, bank website etc.
+                   (Don't save passwords in browser directories)
+
+Driver Manipulation: Is use to driver alteration to take advantage from the victim system
+
+SSL Striping: where sit in the middle of victim and server to sniff the network to get information, 
+              we can also call this MITM attack (men in the middle), resources can be use proxy server, ARP Spoofing, Rogue WIFI hotspot, etc
+                                                     
+                                                    HOW IT WORKS:
+              [Victim] -> http:\\example.com ->  [Attacker] ->http:\\example.com             -> [Server]
+              [Victim] ->                    ->  [Attacker] <- 301 moved (req to move https) <- [Server]
+              [Victim] ->                    ->  [Attacker] -> https:\\example.com           -> [Server]
+              [Victim] ->                    ->  [Attacker] <- response 200 OK               <- [Server]
+              (HERE ATTACKER WILL DECRYPT THE RESPONSE AND CONVERT TO HTTP THEN SEND IT TO THE VICTIM)
+              [Victim] <- http:\\example.com <-  [Attacker]                                     [Server]
+                                                                                    
+
