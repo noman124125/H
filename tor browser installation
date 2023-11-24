@@ -1,0 +1,57 @@
+---------------------------------- TOR INSTALLATION ----------------------------------
+
+Download TORGHOST activitate with any european country
+──(root㉿new)-[/home/new/Downloads/scripts/torghost]
+└─# python3 torghost.py -s
+[22:36:29] Always check for updates using -u option
+[22:36:29] Torrc file already configured
+[22:36:29] Configuring DNS resolv.conf file.. 
+[done]
+[22:36:29] Stopping tor service 
+[done]
+[22:36:29] Starting new tor daemon 
+[done]
+[22:36:29] setting up iptables rules
+[done]
+[22:36:29] Fetching current IP...
+[22:36:29] CURRENT IP : 104.244.78.162
+
+
+------->>> Download Torbrowser and signature file
+------->>> install torbrowser by command ">> apt install torbrowser-launcher" make sure turn off the torghost script first.
+------->>> turn on the torghost, then open the same directory where tor source files are located and follow the bellow proccess...
+
+
+┌──(root㉿new)-[/home/new/Downloads/softwares]
+└─# gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
+
+gpg: key 4E2C6E8793298290: "Tor Browser Developers (signing key) <torbrowser@torproject.org>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+pub   rsa4096 2014-12-15 [C] [expires: 2025-07-21]
+      EF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+uid           [ unknown] Tor Browser Developers (signing key) <torbrowser@torproject.org>
+sub   rsa4096 2021-09-17 [S] [expires: 2024-02-19]
+
+
+┌──(root㉿new)-[/home/new/Downloads/softwares]
+└─# ls
+tor-browser
+tor-browser-linux-x86_64-13.0.5.tar.xz
+tor-browser-linux-x86_64-13.0.5.tar.xz.asc
+tor.keyring
+                                                                                
+┌──(root㉿new)-[/home/new/Downloads/softwares]
+└─# gpgv --keyring ./tor.keyring tor-browser-linux-x86_64-13.0.5.tar.xz.asc tor-browser-linux-x86_64-13.0.5.tar.xz 
+
+gpgv: Signature made Thu Nov 23 15:17:24 2023 +04
+gpgv:                using RSA key 613188FC5BE2176E3ED54901E53D989A9E2D47BF
+gpgv: Good signature from "Tor Browser Developers (signing key) <torbrowser@torproject.org>"
+                 
+┌──(root㉿new)-[/home/new/Downloads/softwares]
+└─# gpg --output ./tor.keyring --export 0xEF6E286DDA85EA2A4BA7DE684E2C6E8793298290
+
+--------------->>> Open search bar and type torbrowser and launch the browser this time probably it will start and work properly.
+
+
+----------------------------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXX-------------------------------------------------------------------
