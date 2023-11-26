@@ -80,3 +80,15 @@ SSL Striping: where sit in the middle of victim and server to sniff the network 
               [Victim] <- http:\\example.com <-  [Attacker]                                     [Server]
                                                                                     
 
+Other Application Attack: this is a type of attack where attacker install an application in the phone of victim and get complete access.
+
+Rougue access points and evil twins: this is a way where attacker can get access of internet device using an wireless access point and then he can monitor all the traffic over internet by assigning himself as a router or MIA
+
+Bluejacking and Bluesnarffing: it the proccess where an attacker can connect with your device and via bluetooth and can steal your data or also can perform MIA.
+
+Wireless disassociation attack (required WAP or WIFI Adaptor): This attack can be perform to disconnect a device from internet by sending deauth packets or to steal handshake file.
+
+RFID (Radio frequency indentification) attack spy uses: this is a radio frequency chp in the size of rice grain which transmit data from one point to another point.
+
+NFC (Near field communication) attack : this is look like a chip with pattern and work with radar frequecy radiations, mostly use in atm, id cards or in phones.so be carefuk before pinch the chip cause an attacker can also steal data with this.
+
