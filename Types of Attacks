@@ -92,3 +92,11 @@ RFID (Radio frequency indentification) attack spy uses: this is a radio frequenc
 
 NFC (Near field communication) attack : this is look like a chip with pattern and work with radar frequecy radiations, mostly use in atm, id cards or in phones.so be carefuk before pinch the chip cause an attacker can also steal data with this.
 
+One Path attack/ MIT (man in the middle attack): In this type of attack, attacker target the internet traffic device such as router, then attacker sniffies and monitor the data and internet traffic.
+
+Mac Flooding and spoofing: this is a type of attack, where attacker targets the network devices such as switches and router and then send large amount of mac address on it to spoil the mac address table, then network devices stop working in well way after that attacker can take the advantage of this vulnerability.
+                           In other case set his mac address same like victim then he can connect with the device easily and can take the advantage.
+
+DNS attack: This the type of attack, where attacker target the DNS server and replace the his fake IP with orignal IP of website after that whenever a visitor try to visit the orginal site, then the visitor automatically direct to the fake site, where vistor can get scammed or compromised.
+            In another case attacker can also create an exact same site with the little bit changes of oringnal domain name, and then they can aslo scammed a user or visitor by pretending like orignal bussiness.
+
